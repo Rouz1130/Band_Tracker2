@@ -94,7 +94,6 @@ namespace BandTracker
     [Fact]
   public void Test7_AddsBandToVenue()
   {
-    //Arrange
     Venue testVenue = new Venue("skydome");
     testVenue.Save();
 
@@ -113,8 +112,24 @@ namespace BandTracker
     Assert.Equal(testList, result);
   }
 
+  [Fact]
+  public void Test8_ReturnsAllVenueBands()
+  {
+    Venue testVenue = new Venue("Skydome");
+    testVenue.Save();
 
+    Band testBand1 = new Band("The Doors");
+    testBand1.Save();
 
+    Band testBand2 = new Band("Nirvana");
+    testBand2.Save();
+
+    testVenue.AddBand(testBand1);
+    List<Band> savedBands = testVenue.GetBands();
+    List<Band> testList = new List<Band> {testBand1};
+
+    Assert.Equal(testList, savedBands);
+  }
 
   }
 }

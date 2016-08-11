@@ -91,7 +91,7 @@ namespace BandTracker
 
    while(rdr.Read())
    {
-     this._id = rdr.GetInt32(1);
+     this._id = rdr.GetInt32(0);
    }
    if (rdr != null)
    {

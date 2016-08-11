@@ -25,7 +25,7 @@ namespace BandTracker
    public void Test2_ReturnsForSameName()
    {
      Band firstBand = new Band("Greenday");
-     Band secondBand = new Band("Nirvna");
+     Band secondBand = new Band("Greenday");
 
      Assert.Equal(firstBand, secondBand);
    }
@@ -40,7 +40,7 @@ namespace BandTracker
       List<Band> result = Band.GetAll();
       List<Band> testList = new List<Band>{testBand};
 
-      Assert.Equal(tesBand, result);
+      Assert.Equal(testList, result);
     }
 
     public void Dispose()

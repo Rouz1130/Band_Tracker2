@@ -47,6 +47,20 @@ namespace BandTracker
       Assert.Equal(testList, result);
     }
 
+    [Fact]
+   public void Test4_Save_AssignsId()
+   {
+     Venue testVenue = new Venue("Skydome");
+     testVenue.Save();
+
+     Venue savedVenue = Venue.GetAll()[0];
+
+     int result = savedVenue.GetId();
+     int testId = testVenue.GetId();
+
+     Assert.Equal(testId, result);
+   }
+
 
 
   }

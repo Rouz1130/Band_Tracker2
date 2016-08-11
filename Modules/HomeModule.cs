@@ -27,6 +27,12 @@ namespace BandTracker
         return View["success.cshtml"];
       };
 
+      Get["/venues"] = _ => {
+        List<Venue> AllVenues = Venue.GetAll();
+        return View["venues.cshtml", AllVenues];
+      };
+
+
     }
   }
 }

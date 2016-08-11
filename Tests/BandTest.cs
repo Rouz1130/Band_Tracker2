@@ -22,13 +22,26 @@ namespace BandTracker
     }
 
     [Fact]
-   public void Test_ReturnsForSameName()
+   public void Test2_ReturnsForSameName()
    {
      Band firstBand = new Band("Greenday");
      Band secondBand = new Band("Greenday");
 
      Assert.Equal(firstBand, secondBand);
    }
+
+
+    [Fact]
+    public void Test3_SavesToDatabase()
+    {
+      Band testBand = new Band("Nirvana");
+
+      testBand.Save();
+      List<Band> result = Band.GetAll();
+      List<Band> testList = new List<Band>{testBand};
+
+      Assert.Equal(tesBand, result);
+    }
 
     public void Dispose()
     {

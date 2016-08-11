@@ -132,7 +132,7 @@ namespace BandTracker
   }
 
   [Fact]
-   public void Test_Delete_DeletesVenueAssociationsFromDatabase()
+   public void Test9_Delete_DeleteOneFromDatabase()
    {
      Band testBand = new Band("The Police");
      testBand.Save();
@@ -148,8 +148,6 @@ namespace BandTracker
 
      Assert.Equal(testBandVenues, resultBandVenues);
    }
-
-
 
 
   }

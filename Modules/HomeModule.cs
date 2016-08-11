@@ -17,6 +17,15 @@ namespace BandTracker
       return View["bands.cshtml", AllBands];
     };
 
+    Get["/bands/new"] = _ => {
+    return View["bands_form.cshtml"];
+    };
+
+    Post["/bands/new"] = _ => {
+        Band newBand = new Band(Request.Form["band-name"]);
+        newBand.Save();
+        return View["success.cshtml"];
+      };
 
     }
   }

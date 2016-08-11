@@ -8,15 +8,15 @@ namespace BandTracker
   {
     private int _id;
     private string _name;
+    //constructors
 
-    // contstructor
     public Venue(string Name, int Id = 0)
     {
       _id = Id;
       _name = Name;
     }
 
-    // getters and setters
+    //getters and setters
     public int GetId()
     {
       return _id;
@@ -30,7 +30,6 @@ namespace BandTracker
       _name = newName;
     }
 
-    // methods
     public static List<Venue> GetAll()
     {
       List<Venue> allVenues = new List<Venue>{};
@@ -61,17 +60,15 @@ namespace BandTracker
       return allVenues;
     }
 
-    public override bool Equals(System.Object otherVenue)
+    public static void DeleteAll()
     {
-        if (!(otherVenue is Venue))
-        {
-          return false;
-        }
-        else
-        {
-          Venue newVenue = (Venue) otherVenue;
-          bool idEquality = this.GetId() == newVenue.GetId();
-          bool nameEquality = this.GetName() == newVenue.GetName();
-          return (idEquality && nameEquality);
-        }
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("DELETE FROM venues;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
     }
+
+
+  }
+}

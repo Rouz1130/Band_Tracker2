@@ -25,7 +25,7 @@ namespace BandTracker
    public void Test2_ReturnsForSameName()
    {
      Band firstBand = new Band("Greenday");
-     Band secondBand = new Band("Greenday");
+     Band secondBand = new Band("Nirvna");
 
      Assert.Equal(firstBand, secondBand);
    }

@@ -57,6 +57,17 @@ namespace BandTracker
      Assert.Equal(testId, result);
    }
 
+   [Fact]
+    public void Test5_FindsBandInDatabase()
+    {
+      Band testBand = new Band("Nirvan")
+      testBand.Save();
+
+      Band foundBand = Band.Find(testBand.GetId());
+
+      Assert.Equal(testBand, foundBand);
+    }
+
 
     public void Dispose()
     {

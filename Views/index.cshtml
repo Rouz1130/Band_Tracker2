@@ -1,22 +1,5 @@
-using System.Collections.Generic;
-using Nancy;
-using Nancy.ViewEngines.Razor;
-
-namespace BandTracker
-{
-  public class HomeModule : NancyModule
-  {
-    public HomeModule()
-    {
-      Get["/"] = _ => {
-        return View["index.cshtml"];
-      };
-
-      Get["/bands"] = _ => {
-        List<Band> AllBands = Band.GetAll();
-        return View["bands.cshtml", AllBands];
-      };
-
-    }
-  }
-}
+<h1>Welcome to Band Tracker!</h1>
+<hr>
+<p>Please Click the Link Below to get Started</p>
+<h4><a href="/venues">View Venues</a></h4>
+<h4><a href="/bands">View Bands</a></h4>

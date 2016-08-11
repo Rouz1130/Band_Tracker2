@@ -58,20 +58,21 @@ namespace BandTracker
    }
 
    [Fact]
-    public void Test5_FindsBandInDatabase()
-    {
-      Band testBand = new Band("Nirvan")
-      testBand.Save();
+   public void Test5_FindBandInDatabase()
+   {
+     Band testBand = new Band("Sting");
+     testBand.Save();
 
-      Band foundBand = Band.Find(testBand.GetId());
+     Band foundBand = Band.Find(testBand.GetId());
 
-      Assert.Equal(testBand, foundBand);
-    }
+     Assert.Equal(testBand, foundBand);
+   }
 
+   public void Dispose()
+   {
+     Band.DeleteAll();
+     Venue.DeleteAll();
+   }
 
-    public void Dispose()
-    {
-      Band.DeleteAll();
-    }
   }
 }

@@ -82,6 +82,11 @@ namespace BandTracker
         return View["venue.cshtml", model];
       };
 
+      Get["venue/edit/{id}"] = parameters => {
+        Venue SelectedVenue = Venue.Find(parameters.id);
+        return View["venue_edit.cshtml", SelectedVenue];
+      };
+
       Post["venue/add_band"] = _ => {
        Venue venue = Venue.Find(Request.Form["venue-id"]);
        Band band = Band.Find(Request.Form["band-id"]);

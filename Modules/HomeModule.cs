@@ -27,6 +27,12 @@ namespace BandTracker
         return View["success.cshtml"];
       };
 
+      Post["/bands/delete"] = _ => {
+        Band.DeleteAll();
+        return View["cleared.cshtml"];
+      };
+
+
       Get["/venues"] = _ => {
         List<Venue> AllVenues = Venue.GetAll();
         return View["venues.cshtml", AllVenues];

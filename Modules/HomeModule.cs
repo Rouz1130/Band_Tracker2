@@ -94,6 +94,16 @@ namespace BandTracker
        return View["success.cshtml"];
      };
 
+     Delete["venue/delete/{id}"] = parameters => {
+        Venue SelectedVenue = Venue.Find(parameters.id);
+        SelectedVenue.Delete();
+        return View["success.cshtml"];
+      };
+
+      Post["/venues/delete"] = _ => {
+        Venue.DeleteAll();
+        return View["cleared.cshtml"];
+      };
 
 
     }
